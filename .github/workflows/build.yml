@@ -28,8 +28,8 @@ jobs:
         #pushd linux
         #git apply ../dxgkrnl.patch --reject
         #sed -i '13s/$/#define _MAIN_KERNEL_/' ./drivers/hv/dxgkrnl/dxgkrnl.h
-        #wget --no-check-certificate -P Microsoft https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/linux-msft-wsl-5.15.y/Microsoft/config-wsl
-        #echo 'CONFIG_X86_KERNEL_IBT=n' >> Microsoft/config-wsl
+        wget --no-check-certificate -P Microsoft https://github.com/arunkanth9/WSL2-Linux-Kernel/blob/linux-msft-wsl-5.15.y/Microsoft/config-wsl
+        echo 'CONFIG_X86_KERNEL_IBT=n' >> Microsoft/config-wsl
         #scripts/config --disable PREEMPT_NONE
         #scripts/config --enable PREEMPT_RT
         make -j$(nproc) KCONFIG_CONFIG=Microsoft/config-wsl LOCALVERSION=""
